@@ -1,0 +1,3 @@
+C:/Users/ahmed/Downloads/GrandBedroomScene/BedroomScene/out/build/x64-Debug/CMakeFiles/GrandBedroomScene.dir
+C:/Users/ahmed/Downloads/GrandBedroomScene/BedroomScene/out/build/x64-Debug/CMakeFiles/edit_cache.dir
+C:/Users/ahmed/Downloads/GrandBedroomScene/BedroomScene/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir

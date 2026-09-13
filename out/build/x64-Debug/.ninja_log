@@ -1,0 +1,4 @@
+# ninja log v6
+36	239	8110193011561718	CMakeFiles/GrandBedroomScene.dir/third_party/glad/src/glad.c.obj	f8a1a742925e4d64
+20	969	8110193011387034	CMakeFiles/GrandBedroomScene.dir/main.cpp.obj	39d4607ebb9659f6
+971	1496	8110193020808889	GrandBedroomScene.exe	cd72ecc38eb7d252
