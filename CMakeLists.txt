@@ -19,7 +19,7 @@ find_package(glm QUIET)
 add_executable(GrandBedroomScene
     main.cpp
     third_party/glad/src/glad.c
-)
+ "clock.h")
 
 target_include_directories(GrandBedroomScene PRIVATE
     ${CMAKE_SOURCE_DIR}

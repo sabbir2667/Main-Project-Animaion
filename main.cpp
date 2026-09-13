@@ -20,7 +20,9 @@
 //  3) One moving object      -> fan.h: a ceiling fan whose blades keep
 //                                spinning every frame (press F to pause).
 //                                Bonus: furniture.h's wardrobe door slides
-//                                open/closed (press G).
+//                                open/closed (press G), and clock.h's wall
+//                                clock hands sweep + its pendulum swings
+//                                every frame too.
 //  4) Two kinds of light     -> pointLight.h (chandelier + 2 bedside lamps
 //                                + a floor lamp = 4 point lights) and
 //                                spotLight.h (a desk reading lamp).
@@ -51,6 +53,7 @@
 #include "bed.h"
 #include "furniture.h"
 #include "fan.h"
+#include "clock.h"
 #include "decor.h"
 
 using namespace std;
@@ -90,6 +93,7 @@ float sceneScale = 1.0f;
 // moving objects
 // ---------------------------------------------------------------------
 CeilingFan ceilingFan(glm::vec3(2.6f, ROOM_H - 0.05f, 3.0f));
+WallClock wallClock(glm::vec3(ROOM_W - WALL_T - 0.17f, 2.85f, (BED_Z0 + BED_Z1) / 2.0f));
 bool wardrobeOpen = false;
 float doorOffset = 0.0f;   // animated toward 0 (closed) or 1 (open)
 
@@ -224,6 +228,7 @@ int main()
 
         // animate the moving objects ---------------------------------
         ceilingFan.update(deltaTime);
+        wallClock.update(deltaTime);
         float doorTarget = wardrobeOpen ? 1.0f : 0.0f;
         doorOffset += (doorTarget - doorOffset) * std::min(1.0f, 4.0f * deltaTime);
 
@@ -277,18 +282,19 @@ int main()
         buildDeskLampFixture(cube, sphere, lightingShader, sceneModel);
         buildPictureFrame(cube, lightingShader, sceneModel);
         ceilingFan.draw(cube, sphere, lightingShader, sceneModel);
+        wallClock.draw(cube, sphere, lightingShader, sceneModel);
 
         // ---- unlit "bulb" markers so every light source is visible ----
         unlitShader.use();
         unlitShader.setMat4("projection", projection);
         unlitShader.setMat4("view", view);
         auto drawBulb = [&](glm::vec3 pos, glm::vec3 color, bool on)
-        {
-            unlitShader.setVec3("color", on ? color : glm::vec3(0.12f, 0.12f, 0.12f));
-            glm::mat4 model = glm::translate(sceneModel, pos);
-            model = glm::scale(model, glm::vec3(0.055f));
-            sphere.drawSphere(unlitShader, model);
-        };
+            {
+                unlitShader.setVec3("color", on ? color : glm::vec3(0.12f, 0.12f, 0.12f));
+                glm::mat4 model = glm::translate(sceneModel, pos);
+                model = glm::scale(model, glm::vec3(0.055f));
+                sphere.drawSphere(unlitShader, model);
+            };
         drawBulb(CHANDELIER_POS, glm::vec3(1.0f, 0.92f, 0.70f), pointlight1.isOn());
         drawBulb(BEDSIDE_LAMP1_POS, glm::vec3(1.0f, 0.75f, 0.30f), pointlight2.isOn());
         drawBulb(BEDSIDE_LAMP2_POS, glm::vec3(1.0f, 0.75f, 0.30f), pointlight3.isOn());

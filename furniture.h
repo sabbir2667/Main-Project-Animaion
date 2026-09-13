@@ -17,8 +17,8 @@
 #include "cube.h"
 
 inline void furnBox(const Cube& cube, Shader& shader, const glm::mat4& sceneModel,
-                     float x, float y, float z, float sx, float sy, float sz,
-                     float r, float g, float b, float shininess = 24.0f, float spec = 0.2f)
+    float x, float y, float z, float sx, float sy, float sz,
+    float r, float g, float b, float shininess = 24.0f, float spec = 0.2f)
 {
     glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(x, y, z));
     model = glm::scale(model, glm::vec3(sx, sy, sz));
@@ -33,7 +33,7 @@ const float WARDROBE_X0 = 0.10f;
 const float WARDROBE_X1 = 0.65f;
 const float WARDROBE_Z0 = 4.60f;
 const float WARDROBE_Z1 = 6.60f;
-const float WARDROBE_H  = 2.30f;
+const float WARDROBE_H = 2.30f;
 
 inline void buildWardrobe(const Cube& cube, Shader& shader, const glm::mat4& sceneModel, float doorOffset)
 {
@@ -73,8 +73,8 @@ inline void buildWardrobe(const Cube& cube, Shader& shader, const glm::mat4& sce
 // ---------------------------------------------------------------------
 const float DESK_X0 = 0.20f;
 const float DESK_Z0 = 0.20f;
-const float DESK_W  = 1.55f;
-const float DESK_D  = 0.70f;
+const float DESK_W = 1.55f;
+const float DESK_D = 0.70f;
 const float DESK_TOP_Y = 0.72f;
 
 inline void buildStudyDesk(const Cube& cube, Shader& shader, const glm::mat4& sceneModel)
@@ -128,7 +128,7 @@ inline void buildBookshelf(const Cube& cube, Shader& shader, const glm::mat4& sc
     {
         float bz = z0 + 0.10f + i * 0.20f;
         furnBox(cube, shader, sceneModel, x0 + 0.06f, 0.63f, bz, 0.20f, 0.28f, 0.15f,
-                bookColors[i][0], bookColors[i][1], bookColors[i][2], 10.0f, 0.05f);
+            bookColors[i][0], bookColors[i][1], bookColors[i][2], 10.0f, 0.05f);
     }
 }
 
