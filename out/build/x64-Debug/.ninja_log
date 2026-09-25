@@ -1,6 +1,4 @@
 # ninja log v6
 36	239	8110193011561718	CMakeFiles/GrandBedroomScene.dir/third_party/glad/src/glad.c.obj	f8a1a742925e4d64
-1045	1621	8110215443018235	GrandBedroomScene.exe	cd72ecc38eb7d252
-14	1044	8110215432684926	CMakeFiles/GrandBedroomScene.dir/main.cpp.obj	39d4607ebb9659f6
-9	1404	8110235541712355	CMakeFiles/GrandBedroomScene.dir/main.cpp.obj	39d4607ebb9659f6
 1406	2010	8110235555729209	GrandBedroomScene.exe	cd72ecc38eb7d252
+9	1404	8110235541712355	CMakeFiles/GrandBedroomScene.dir/main.cpp.obj	39d4607ebb9659f6
